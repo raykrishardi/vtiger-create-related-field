@@ -8,6 +8,7 @@ cat << EOF
 Prerequisite:
 1. Navigate to the module that you want to create the field in
 2. Create custom field with type "Text" (length max 255)
+3. Update DB credentials accordingly in the script file
 
 Reference:
 https://www.vtexperts.com/how-to-create-contacts-organization-custom-lookup-relatedto-field-in-vtiger/
@@ -35,7 +36,7 @@ INSERT INTO vtiger_fieldmodulerel VALUES(@fieldid, "$originModule", "$relModule"
 EOF
 
 if [ $? -eq 0 ]; then
-    echo "DB updated successfully!"
+    echo "DB updated successfully for ${originModule} module!"
 else
     echo "Failed to update DB!"
 fi
